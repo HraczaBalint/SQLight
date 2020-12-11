@@ -57,4 +57,25 @@ public class DBhelper extends SQLiteOpenHelper {
         return db.query(TANULO_TABLE, new String[]{COL_ID, COL_NEV, COL_EMAIL, COL_JEGY}, null, null, null, null,null);
         //return db.rawQuery("SELECT * FROM tanulo WHERE jegy = ?", new String[]{"4"});
     }
+
+    public boolean idLetezik(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT * FROM tanulo WHERE id = ?", new String[]{id});
+        return result.getCount() == 1;
+    }
+
+    public boolean adatModositas(String id, String nev, String email, String jegy) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_NEV, nev);
+        values.put(COL_EMAIL, email);
+        values.put(COL_JEGY, jegy);
+        int erintettSorokSzama = db.update(TANULO_TABLE, values, "id = ?", new String[]{id});
+        return erintettSorokSzama == 1;
+    }
+
+    public boolean adatTorles(String id) {
+         SQLiteDatabase db = this.getWritableDatabase();
+         return db.delete(TANULO_TABLE, "id = ?", new String[]{id}) == 1;
+    }
 }

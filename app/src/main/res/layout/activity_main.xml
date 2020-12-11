@@ -36,9 +36,4 @@
         android:maxLines="999"
         android:scrollbars="vertical"/>
 
-
-
-
-
-
 </LinearLayout>

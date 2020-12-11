@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btnTorol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent torlesre = new Intent(MainActivity.this, RogzitActivity.class);
+                Intent torlesre = new Intent(MainActivity.this, TorolActivity.class);
                 startActivity(torlesre);
                 finish();
             }
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         btnModosit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent modositasra = new Intent(MainActivity.this, RogzitActivity.class);
+                Intent modositasra = new Intent(MainActivity.this, ModositActivity.class);
                 startActivity(modositasra);
                 finish();
             }
